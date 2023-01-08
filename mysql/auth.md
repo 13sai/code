@@ -1,11 +1,11 @@
-## user
+### user
 
 ```sql
 CREATE USER '13sai'@'localhost' IDENTIFIED BY '12345678';
 CREATE USER '13sai'@'%' IDENTIFIED BY '12345678';
 ```
 
-## grant
+### grant
 
 ```sql
 GRANT ALL PRIVILEGES ON directory . sai TO '13sai'@'localhost';
@@ -26,38 +26,38 @@ GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT, REFERENCES, RELOAD on
 - UPDATE：允许他们更新表行
 - GRANT OPTION：允许他们授予或删除其他用户的权限
 
-## flush
+### flush
 
 ```sql
 FLUSH PRIVILEGES;
 ```
 
-## revoke 
+### revoke 
 
 ```sql
 REVOKE CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT, REFERENCES, RELOAD on *.* FROM '13sai'@'localhost';
 REVOKE ALL PRIVILEGES on *.* FROM '13sai'@'localhost';
 ```
 
-## rename
+### rename
 ```sql
 RENAME USER 'sai'@'localhost' to '13sai'@'%';
 ```
-## drop
+### drop
 
 ```sql
 DROP USER '13sai'@'%';
 ```
 
-## role
+### role
 
-### create
+#### create
 
 ```sql
 CREATE ROLE 'app_developer', 'app_read', 'app_write';
 ```
 
-### grant
+#### grant
 
 ```sql
 GRANT ALL ON app_db.* TO 'app_developer';
@@ -76,4 +76,10 @@ CREATE USER 'rw_user1'@'localhost' IDENTIFIED BY 'rw_user1pass';
 GRANT 'app_developer' TO 'dev1'@'localhost';
 GRANT 'app_read' TO 'read_user1'@'localhost', 'read_user2'@'localhost';
 GRANT 'app_read', 'app_write' TO 'rw_user1'@'localhost';
+```
+
+### 当前用户
+
+```sql
+SELECT CURRENT_USER();
 ```
